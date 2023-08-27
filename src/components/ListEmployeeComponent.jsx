@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import EmployeeService from '../services/EmployeeService';
-import withRouter from './withRouter';
+import withRouter from '../withRouter';
 
 
 
@@ -30,10 +30,11 @@ class ListEmployeeComponent extends Component {
     render() {
         return (
             <div>
-                <h2 className='text-center'>Employee List</h2>
-                <div className='row'>
-                    <button className='btn btn-primary' onClick={this.addEmployee}>Add Employee</button>
+                <h2 className="text-center">Employees List</h2>
+                <div className = "row">
+                    <button className="btn btn-primary" onClick={this.addEmployee}>Add Employee</button>
                 </div>
+                <br></br>
                 <div className='row'>
                     <table className='table table-striped table-boarded'>
 
@@ -65,4 +66,4 @@ class ListEmployeeComponent extends Component {
     }
 }
 
-export default withRouter(ListEmployeeComponent)
+export default withRouter(ListEmployeeComponent);
