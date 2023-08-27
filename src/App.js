@@ -13,7 +13,7 @@ function App() {
         <HeaderComponent/>
           <div className="container">
             <Routes> 
-              <Route path="/" Component={ListEmployeeComponent}></Route>
+              <Route path="/" exact Component={ListEmployeeComponent}></Route>
               <Route path="/employees" Component={ListEmployeeComponent}></Route>
               <Route path="/add-employee" Component={CreateEmployeeComponent}></Route>
             </Routes>
