@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import EmployeeService from '../services/EmployeeService';
+import withRouter from './withRouter';
+
+
 
 class ListEmployeeComponent extends Component {
+
+   
+
     constructor(props) {
         super(props)
 
@@ -18,7 +24,7 @@ class ListEmployeeComponent extends Component {
     }
 
     addEmployee(){
-        this.props.history.push("/add-employee");
+        this.props.navigate('/add-employee');
     }
 
     render() {
@@ -59,4 +65,4 @@ class ListEmployeeComponent extends Component {
     }
 }
 
-export default ListEmployeeComponent;
+export default withRouter(ListEmployeeComponent)
