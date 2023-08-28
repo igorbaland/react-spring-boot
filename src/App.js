@@ -16,8 +16,8 @@ function App() {
             <Routes> 
               <Route path="/" exact Component={ListEmployeeComponent}></Route>
               <Route path="/employees" Component={ListEmployeeComponent}></Route>
-              <Route path="/add-employee" Component={CreateEmployeeComponent}></Route>
-              <Route path='/update-employee/:id' Component={UpdateEmployeeComponent}></Route>
+              <Route path="/add-employee/:id" Component={CreateEmployeeComponent}></Route>
+              {/*<Route path='/update-employee/:id' Component={UpdateEmployeeComponent}></Route>*/}
             </Routes>
           </div>
          <FooterComponent/>  
