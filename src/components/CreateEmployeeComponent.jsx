@@ -26,7 +26,7 @@ class CreateEmployeeComponent extends Component {
             firstName: this.state.firstName, 
             lastName: this.state.lastName, 
             emailId: this.state.emailId};
-        console.log('employee => ' + JSON.stringify(employee));
+        //console.log('employee => ' + JSON.stringify(employee));
 
         EmployeeService.createEmployee(employee).then(res =>{
             this.props.navigate('/employees');
