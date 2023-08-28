@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import EmployeeService from '../services/EmployeeService';
 import withRouter from '../withRouter';
 
-
-
 class ListEmployeeComponent extends Component {
-
-   
 
     constructor(props) {
         super(props)
@@ -14,6 +10,7 @@ class ListEmployeeComponent extends Component {
         this.state ={
             employees: []
         }
+
         this.addEmployee = this.addEmployee.bind(this);
     }
     
@@ -27,6 +24,10 @@ class ListEmployeeComponent extends Component {
         this.props.navigate('/add-employee');
     }
 
+    editEmployee(id){
+        this.props.navigate(`/update-employee/${id}`);
+    }
+
     render() {
         return (
             <div>
@@ -37,7 +38,6 @@ class ListEmployeeComponent extends Component {
                 <br></br>
                 <div className='row'>
                     <table className='table table-striped table-boarded'>
-
                         <thead>
                             <tr>
                                 <th>Employee First Name</th>
@@ -55,6 +55,9 @@ class ListEmployeeComponent extends Component {
                                         <td>{employee.firstName}</td>
                                         <td>{employee.lastName}</td>
                                         <td>{employee.emailId}</td>
+                                        <td>
+                                            <button onClick={ () => this.editEmployee(employee.id)} className="btn btn-info">Update</button>
+                                        </td>
                                     </tr>
                                 )
                             }
