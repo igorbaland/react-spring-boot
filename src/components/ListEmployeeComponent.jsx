@@ -25,7 +25,7 @@ class ListEmployeeComponent extends Component {
     }
 
     editEmployee(id){
-        this.props.navigate(`/update-employee/${id}`);
+        this.props.navigate(`/add-employee/${id}`);
     }
 
     render() {
