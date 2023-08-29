@@ -29,7 +29,7 @@ class CreateEmployeeComponent extends Component {
             emailId: this.state.emailId
         };
         //console.log('employee => ' + JSON.stringify(employee));
-        if(this.state.id == -1) {
+        if(this.state.id === '_add') {
             EmployeeService.createEmployee(employee).then(res =>{
                 this.props.navigate('/employees');
             });
@@ -57,7 +57,7 @@ class CreateEmployeeComponent extends Component {
     }
 
     componentDidMount(){
-        if(this.state.id == -1) {
+        if(this.state.id === '_add') {
             return
         } else {
             EmployeeService.getEmployeeById(this.state.id).then((res) => {

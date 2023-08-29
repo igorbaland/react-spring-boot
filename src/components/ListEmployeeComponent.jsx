@@ -21,7 +21,7 @@ class ListEmployeeComponent extends Component {
     }
 
     addEmployee(){
-        this.props.navigate('/add-employee/-1');
+        this.props.navigate('/add-employee/_add');
     }
 
     editEmployee(id){
