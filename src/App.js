@@ -4,6 +4,7 @@ import ListEmployeeComponent from './components/ListEmployeeComponent';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import CreateEmployeeComponent from './components/CreateEmployeeComponent';
+import ViewEmployeeComponent from './components/ViewEmployeeComponent';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
               <Route path="/" exact Component={ListEmployeeComponent}></Route>
               <Route path="/employees" Component={ListEmployeeComponent}></Route>
               <Route path="/add-employee/:id" Component={CreateEmployeeComponent}></Route>
+              <Route path="/view-employee/:id" Component={ViewEmployeeComponent}></Route>
             </Routes>
           </div>
          <FooterComponent/>  
