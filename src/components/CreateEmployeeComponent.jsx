@@ -8,6 +8,7 @@ class CreateEmployeeComponent extends Component {
         super(props)
         
         this.state = {
+            id: this.props.params.id,
             firstName: '',
             lastName: '',
             emailId: ''
@@ -25,12 +26,18 @@ class CreateEmployeeComponent extends Component {
         let employee = {
             firstName: this.state.firstName, 
             lastName: this.state.lastName, 
-            emailId: this.state.emailId};
+            emailId: this.state.emailId
+        };
         //console.log('employee => ' + JSON.stringify(employee));
-
-        EmployeeService.createEmployee(employee).then(res =>{
-            this.props.navigate('/employees');
-        });
+        if(this.state.emailId == -1) {
+            EmployeeService.createEmployee(employee).then(res =>{
+                this.props.navigate('/employees');
+            });
+        } else {
+           EmployeeService.updateEmployee(employee, this.state.id).then(res =>{
+                this.props.navigate('/employees');
+           });
+        }
     }
 
     changeFirstNameHandler= (event) => {
@@ -47,6 +54,21 @@ class CreateEmployeeComponent extends Component {
 
     cancel(){
         this.props.navigate('/employees');
+    }
+
+    componentDidMount(){
+        if(this.state.id == -1) {
+            return
+        } else {
+            EmployeeService.getEmployeeById(this.state.id).then((res) => {
+                let employee = res.data;
+                this.setState({
+                    firstName: employee.firstName,
+                    lastName: employee.lastName,
+                    emailId: employee.emailId
+                });
+            });
+        }
     }
 
     render() {
