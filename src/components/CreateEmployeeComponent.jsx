@@ -18,10 +18,10 @@ class CreateEmployeeComponent extends Component {
         this.changeLastNameHandler = this.changeLastNameHandler.bind(this);
         this.changeEmailHandler = this.changeEmailHandler.bind(this);
         
-        this.saveEmployee = this.saveEmployee.bind(this);
+        this.saveUpdateEmployee = this.saveUpdateEmployee.bind(this);
     }
 
-    saveEmployee = (e) => {
+    saveUpdateEmployee = (e) => {
         e.preventDefault();
         let employee = {
             firstName: this.state.firstName, 
@@ -29,7 +29,7 @@ class CreateEmployeeComponent extends Component {
             emailId: this.state.emailId
         };
         //console.log('employee => ' + JSON.stringify(employee));
-        if(this.state.emailId == -1) {
+        if(this.state.id == -1) {
             EmployeeService.createEmployee(employee).then(res =>{
                 this.props.navigate('/employees');
             });
@@ -71,6 +71,15 @@ class CreateEmployeeComponent extends Component {
         }
     }
 
+    
+    getTitle(){
+        if(this.state.id == -1) {
+            return <h3 className="text-center">Add Employee</h3>
+        } else {
+            return <h3 className="text-center">Update Empleyee</h3>
+        }
+    }
+
     render() {
         return (
             <div>
@@ -78,7 +87,9 @@ class CreateEmployeeComponent extends Component {
                    <div className = "container">
                         <div className = "row">
                             <div className = "card col-md-6 offset-md-3 offset-md-3">
-                                <h3 className='text-center'>Add employee</h3>
+                               {
+                                this.getTitle()
+                               } 
                                 <div className = "card-body">
                                     <form>
                                         <div className = "form-group">
@@ -96,7 +107,7 @@ class CreateEmployeeComponent extends Component {
                                             <input placeholder="Email" name="emailId" className="form-control" 
                                                 value={this.state.emailId} onChange={this.changeEmailHandler}/>
                                         </div>
-                                        <button className="btn btn-success" onClick={this.saveEmployee}>Save</button>
+                                        <button className="btn btn-success" onClick={this.saveUpdateEmployee}>Save</button>
                                         {/*bind without constructor*/ }
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
                                     </form>
