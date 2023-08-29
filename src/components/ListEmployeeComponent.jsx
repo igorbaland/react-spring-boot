@@ -21,7 +21,7 @@ class ListEmployeeComponent extends Component {
     }
 
     addEmployee(){
-        this.props.navigate('/add-employee');
+        this.props.navigate('/add-employee/-1');
     }
 
     editEmployee(id){
@@ -32,12 +32,13 @@ class ListEmployeeComponent extends Component {
         return (
             <div>
                 <h2 className="text-center">Employees List</h2>
-                <div className = "row">
+                <div className='row'>
                     <button className="btn btn-primary" onClick={this.addEmployee}>Add Employee</button>
                 </div>
                 <br></br>
-                <div className='row'>
+                <div className = "row">
                     <table className='table table-striped table-boarded'>
+                        
                         <thead>
                             <tr>
                                 <th>Employee First Name</th>
